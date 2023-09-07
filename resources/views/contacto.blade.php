@@ -6,11 +6,26 @@
     <title>contacto</title>
 </head>
 <body>
+    <h3>
+      {{$tipo}}
+    </h3>
     <h1> Formularo de contacto<h1>
-        <form action="">
+        <form action="validar-contacto" method="post">
+            @csrf
             <label for="correo">Correo</label><br>
-            <input type="email" name="correo"><br>
+            <input type="email" name="correo" 
+            @if($tipo == 'alumno')
+                value="@alumnos.udg.mx"
+            @else
+                value="@gmail.com"
+
+            @endif
+            ><br>
+
             <label for="comentario">Comentario</label><br>
-            <textarea name="comentario" id="" cols="30" rows="10"></textarea>
+            <textarea name="comentario" id="" cols="30" rows="10">
+
+            </textarea><br>
+            <input type="submit" value="Enviar">
 </body>
 </html>
